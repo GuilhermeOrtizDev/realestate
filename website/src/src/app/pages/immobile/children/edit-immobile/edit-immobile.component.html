@@ -1,0 +1,217 @@
+<div class="filter-page"></div>
+<section class="edit-immobile">
+    <form [formGroup]="editImmobile" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label>
+                Referencia
+                <input type="text" formControlName="reference" mask="0*" [ngModel]="immobile.reference">
+                <span class="error"
+                    *ngIf="editImmobile.get('reference')?.errors && (editImmobile.get('reference')?.touched || editImmobile.get('reference')?.dirty )">
+                    Favor adicionar o referencia
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Preço
+                <input type="text" formControlName="price" mask="separator.2" thousandSeparator="." [ngModel]="immobile.price">
+                <span class="error"
+                    *ngIf="editImmobile.get('price')?.errors && (editImmobile.get('price')?.touched || editImmobile.get('price')?.dirty )">
+                    Favor adicionar o preço
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Cep
+                <input type="text" formControlName="cep" mask="00000-000" [ngModel]="immobile.cep">
+                <span class="error"
+                    *ngIf="editImmobile.get('cep')?.errors && (editImmobile.get('cep')?.touched || editImmobile.get('cep')?.dirty )">
+                    Favor adicionar o cep
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                UF
+                <div class="form-group-inline">
+                    <select name="uf" formControlName="uf" (change)="changeUF()" [ngModel]="immobile.uf?.id">
+                        <option value="">Selecione um UF</option>
+                        <option *ngFor="let item of ufs" [ngValue]="item.id">
+                            {{item.description}}
+                        </option>
+                    </select>
+                    <label class="button create" for="open-modal-uf">+</label>
+                </div>
+                <span class="error"
+                    *ngIf="editImmobile.get('uf')?.errors && (editImmobile.get('uf')?.touched || editImmobile.get('uf')?.dirty )">
+                    Favor selecionar umaa UF
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Cidade
+                <div class="form-group-inline">
+                    <select name="city" formControlName="city" (change)="changeCity()" [ngModel]="immobile.city?.id">
+                        <option value="">Selecione uma Cidade</option>
+                        <option *ngFor="let item of cities" [ngValue]="item.id">
+                            {{item.description}}
+                        </option>
+                    </select>
+                    <label class="button create" for="open-modal-city">+</label>
+                </div>
+                <span class="error"
+                    *ngIf="editImmobile.get('city')?.errors && (editImmobile.get('city')?.touched || editImmobile.get('city')?.dirty )">
+                    Favor selecionar uma cidade
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Bairro
+                <div class="form-group-inline">
+                    <select name="neighborhood" formControlName="neighborhood" [ngModel]="immobile.neighborhood?.id">
+                        <option value="">Selecione um Bairro</option>
+                        <option *ngFor="let item of neighborhoods" [ngValue]="item.id">
+                            {{item.description}}
+                        </option>
+                    </select>
+                    <label class="button create" for="open-modal-neighborhood">+</label>
+                </div>
+                <span class="error"
+                    *ngIf="editImmobile.get('neighborhood')?.errors && (editImmobile.get('neighborhood')?.touched || editImmobile.get('neighborhood')?.dirty )">
+                    Favor selecionar um bairro
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Rua
+                <input type="text" formControlName="logradouro" [ngModel]="immobile.logradouro">
+                <span class="error"
+                    *ngIf="editImmobile.get('logradouro')?.errors && (editImmobile.get('logradouro')?.touched || editImmobile.get('logradouro')?.dirty )">
+                    Favor adicionar a rua
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Numero
+                <input type="text" formControlName="number"  mask="0*" [ngModel]="immobile.number"> 
+                <span class="error"
+                    *ngIf="editImmobile.get('number')?.errors && (editImmobile.get('number')?.touched || editImmobile.get('number')?.dirty )">
+                    Favor adicionar o numero
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Complemento
+                <input type="text" formControlName="complement" [ngModel]="immobile.complement">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Descrição
+                <input type="text" formControlName="description" [ngModel]="immobile.reference" [ngModel]="immobile.description">
+                <span class="error"
+                    *ngIf="editImmobile.get('description')?.errors && (editImmobile.get('description')?.touched || editImmobile.get('description')?.dirty )">
+                    Favor adicionar a descrição
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Imagem
+                <input type="file" accept="image/*" formControlName="image" (change)="uploadImage($event)">
+                <span class="error"
+                    *ngIf="editImmobile.get('image')?.errors && (editImmobile.get('image')?.touched || editImmobile.get('image')?.dirty )">
+                    Favor adicionar uma foto
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Galeria
+                <input type="file" accept="image/*" formControlName="gallery" (change)="uploadGallery($event)" multiple>
+            </label>
+        </div>
+        <button type="submit" [disabled]="editImmobile.invalid">Salvar</button>
+    </form>
+</section>
+<app-modal id="modal-uf" title="Nova UF" class="modal-md">
+    <form [formGroup]="createUf" (ngSubmit)="submitFormUf()">
+        <div class="form-group">
+            <label>
+                UF
+                <input type="text" formControlName="uf">
+                <span class="error"
+                    *ngIf="createUf.get('uf')?.errors && (createUf.get('uf')?.touched || createUf.get('uf')?.dirty )">
+                    Favor adicionar uma UF
+                </span>
+            </label>
+        </div>
+        <button type="submit" [disabled]="createUf.invalid">Cadastar</button>
+    </form>
+</app-modal>
+<app-modal id="modal-city" title="Nova Cidade" class="modal-md">
+    <form [formGroup]="createCity" (ngSubmit)="submitFormCity()">
+        <div class="form-group">
+            <label>
+                Cidade
+                <input type="text" formControlName="city">
+                <span class="error"
+                    *ngIf="createCity.get('city')?.errors && (createCity.get('city')?.touched || createCity.get('city')?.dirty )">
+                    Favor adicionar uma cidade
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                UF
+                <select name="uf" formControlName="uf">
+                    <option value="">Selecione um UF</option>
+                    <option *ngFor="let item of ufs" [ngValue]="item">
+                        {{item.description}}
+                    </option>
+                </select>
+                <span class="error"
+                    *ngIf="createCity.get('uf')?.errors && (createCity.get('uf')?.touched || createCity.get('uf')?.dirty )">
+                    Favor selecionar uma UF
+                </span>
+            </label>
+        </div>
+        <button type="submit" [disabled]="createCity.invalid">Cadastar</button>
+    </form>
+</app-modal>
+<app-modal id="modal-neighborhood" title="Novo Bairro" class="modal-md">
+    <form [formGroup]="createNeighborhood" (ngSubmit)="submitFormNeighborhood()">
+        <div class="form-group">
+            <label>
+                Bairro
+                <input type="text" formControlName="neighborhood">
+                <span class="error"
+                    *ngIf="createNeighborhood.get('neighborhood')?.errors && (createNeighborhood.get('neighborhood')?.touched || createNeighborhood.get('neighborhood')?.dirty )">
+                    Favor adicionar um bairro
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Cidade
+                <select name="city" formControlName="city">
+                    <option value="">Selecione um UF</option>
+                    <option *ngFor="let item of cities" [ngValue]="item">
+                        {{item.description}}
+                    </option>
+                </select>
+                <span class="error"
+                    *ngIf="createNeighborhood.get('city')?.errors && (createNeighborhood.get('city')?.touched || createNeighborhood.get('city')?.dirty )">
+                    Favor selecionar uma cidade
+                </span>
+            </label>
+        </div>
+        <button type="submit" [disabled]="createNeighborhood.invalid">Cadastar</button>
+    </form>
+</app-modal>

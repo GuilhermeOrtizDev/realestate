@@ -1,0 +1,15 @@
+<section class="header-immobiles">
+    <div class="filter-page"></div>
+    <div class="filter-immobiles">
+        <app-filter-immobile></app-filter-immobile>
+    </div>
+</section>
+<section class="container immobiles">
+    <div class="create">
+        <a class="button" routerLink="/imovel/criar">Novo</a>
+    </div>
+    <div class="row">
+        <app-card-immobile *ngFor="let immobile of immobiles" [immobile]="immobile"></app-card-immobile>
+    </div>
+    <app-pagination [amount]="amount" *ngIf="amount != 0"></app-pagination>
+</section>

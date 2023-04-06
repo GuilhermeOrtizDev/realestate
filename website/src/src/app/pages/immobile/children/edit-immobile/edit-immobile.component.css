@@ -1,0 +1,12 @@
+.edit-immobile{
+    display: flex;
+    justify-content: center;
+}
+
+.edit-immobile form{
+    width: 500px;
+    background-color: white;
+    transform: translateY(-80px);
+    border-radius: 8px;
+    padding: 35px;
+}

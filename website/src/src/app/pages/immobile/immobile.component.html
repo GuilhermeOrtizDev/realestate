@@ -1,0 +1,39 @@
+<div class="filter-page"></div>
+<section class="immobile container">
+    <div class="immobile-main">
+        <div class="info">
+            <div class="info-1">
+                <h1>Ref. {{immobile.reference}}</h1>
+                R$ {{immobile.price | mask: 'separator.2': '.' }} <br>
+                <button class="edit" (click)="editImmobile()">Editar</button>
+                <button class="delete" (click)="deletImmobile()">Deletar</button>
+            </div>
+            <div class="info-2">
+                <div class="address">
+                    <h2>Localização</h2>
+                    Cep: {{immobile.cep | mask: '00000-000'}} <br>
+                    {{immobile.city?.description}}, {{immobile.uf?.description}} <br>
+                    Bairro: {{immobile.neighborhood?.description}} <br>
+                    Rua: {{immobile.logradouro}}, {{immobile.number}} <br>
+                    Complemento: {{immobile.complement}} <br>
+                </div>
+                <hr>
+                <div class="description">
+                    <h2>Descrição</h2>
+                    <p>{{immobile.description}}</p> 
+                </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <app-carrossel [images]="immobile.gallery"></app-carrossel>
+        </div>
+    </div>
+    <div class="others-immobiles">
+        <hr>
+        <h3 class="text-center">IMOVEIS <br><span class="h6"> QUE COMBINAM COM VOCÊ</span></h3>
+        <hr>
+    </div>
+    <div class="row">
+        <app-card-immobile *ngFor="let immobile of immobiles" [immobile]="immobile"></app-card-immobile>
+    </div>
+</section>
