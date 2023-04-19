@@ -1,0 +1,52 @@
+.filter-home .filter-immovable{
+    display: flex;
+    justify-content: end;
+}
+
+.filter-home .filter-immovable label{
+    border-radius: 12px 12px 0 0;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+    font-weight: bold;
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+}
+
+.filter-home .filter-immovable label.active {
+    background-color: white;
+    color: var(--secondary-color);
+}
+
+.filter-home .filter-immovable input{
+    display: none;
+}
+
+.filter-home .filter-basic{
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px 0 12px 12px;
+    display: flex;
+}
+
+.filter-home .filter-basic select,
+.filter-home .filter-basic button{
+    margin: 0 5px;
+}
+
+.filter-home .filter-basic button{
+    background-color: var(--primary-color)!important;
+    color: white;
+    font-weight: bold;
+    border-color: var(--secondary-color)!important;
+    box-shadow: 0 0 10px grey;
+}
+
+.filter-home .filter-alt{
+    padding: 10px;
+    border-radius: 0 0 12px 12px;
+    background-color: var(--primary-color);
+    color: white;
+    margin: 0 12px;
+    text-align: center;
+}

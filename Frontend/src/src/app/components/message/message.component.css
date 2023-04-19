@@ -1,0 +1,31 @@
+.messages{
+    position: fixed;
+    top: 20px;
+    left: calc(100% - 260px);
+    z-index: 9999;
+}
+
+.messages>div{
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.messages .error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.messages .succeed {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.messages .warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}

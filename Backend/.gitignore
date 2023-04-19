@@ -1,0 +1,15 @@
+﻿.suo
+bin
+obj
+.user
+*.v2
+*.user
+*.pubxml
+/.vs
+/.vs/*
+/DevIO.App/bin
+/DevIO.App/obj
+/DevIO.Business/bin
+/DevIO.Business/obj
+/DevIO.Data/bin
+/DevIO.Data/obj

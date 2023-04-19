@@ -1,0 +1,15 @@
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination button{
+    margin: 5px;
+}
+
+.pagination button.active{
+    border-color: var(--primary-color);
+    background-color: var(--secondary-color);
+}

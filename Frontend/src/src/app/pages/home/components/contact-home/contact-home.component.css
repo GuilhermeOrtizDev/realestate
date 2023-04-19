@@ -1,0 +1,8 @@
+.contact-home{
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 50px;
+    text-align: center;
+}

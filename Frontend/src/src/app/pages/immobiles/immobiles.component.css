@@ -1,0 +1,37 @@
+.header-immobiles{
+    position: relative;
+}
+
+.header-immobiles .filter-immobiles{
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 120px);
+    width: 800px;
+    transform: translateX(-50%);
+}
+
+.immobiles{
+    margin: 90px auto 30px;
+}
+
+.immobiles .create{
+    display: flex;
+    justify-content: end;
+}
+
+.immobiles .create a{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.immobiles .row{
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+app-card-immobile{
+    flex: 0 0 25%;
+    max-width: 25%;
+}
