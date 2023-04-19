@@ -1,5 +1,0 @@
-<div class="pagination" *ngIf="amount != 0">
-    <button *ngIf="page != 1" (click)="Pagination(pages[0])"><fa-icon [icon]="faAngleDoubleLeft"></fa-icon></button>
-    <button *ngFor="let item of pages" (click)="Pagination(item)" class="{{item == page ? 'active' : ''}}" disabled="{{item == page ? 'true' : ''}}">{{item}}</button>
-    <button *ngIf="page != pages[pages.length - 1]" (click)="Pagination(pages[pages.length - 1])"><fa-icon [icon]="faAngleDoubleRight"></fa-icon></button>
-</div>
