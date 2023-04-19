@@ -16,5 +16,5 @@ Real Estate Backend is an api made in .NET 6
 6. Run the project through visual studio
 
 # Versions 
-visual studio: 2022
-sdk 6.0.15
+* visual studio: 2022
+* sdk 6.0.15
