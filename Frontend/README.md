@@ -12,7 +12,7 @@ Real Estate Frontend is made in Angular
 4. Run ng serve (to run the frontend)
 5. Open the browser at the link indicated in the terminal (default: localhost:4200)
 
-#Versions
+# Versions
 Angular CLI: 14.2.6
 Node: 18.16.0
 angular-devkit/architect: 0.1402.6 (cli-only)
